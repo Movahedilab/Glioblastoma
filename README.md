@@ -21,6 +21,6 @@ Vrije Universiteit Brussel\
 Pleinlaan 2, 1050 Brussels, Belgium\
 kiavash.movahedi@vub.be
 
-### Questions about software/code: 
+### Questions about the code: 
 ##### Daliya Kancheva, PhD
 daliya.kancheva@vub.be
