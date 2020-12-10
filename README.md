@@ -3,7 +3,7 @@ This repository contains the code used to analyze the data in Antunes et al. Nat
 
 ### Code
 - script_scRNAseq.R = script to analyse single cell RNA-seq data
-- script_CITE-Seq.R = script to analyse CITE-Seq data
+- script_Citeseq.R = script to analyse CITE-Seq data
 
 ### Webtool
 Browse through all the data via the webtool: http://www.brainimmuneatlas.org/datasets_gbm.php
