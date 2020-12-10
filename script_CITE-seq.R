@@ -6,6 +6,9 @@ suppressPackageStartupMessages({
  library(clustree)
 })
 
+path_data<-"~/path/to/data/"
+path_output<-"~/path/to/output_folder/"
+
 ################################################################################
 ########## RNA data preprocessing
 ###############################################################################
@@ -20,7 +23,7 @@ suppressPackageStartupMessages({
 
 #### Read the raw (unfiltered) antibody-barcode matrix from the
 #### ADT Cellranger output of the CITEseq sample into a sparse matrix
-ADT_raw <- Read10X("outs/raw_feature_bc_matrix/")[["Antibody Capture"]]
+ADT_raw <- Read10X(paste0(path_data,"raw_feature_bc_matrix/"))[["Antibody Capture"]]
 
 
 #### Remove barcodes with zero counts for all antibodies
@@ -271,3 +274,5 @@ DimPlot(seur_merged, reduction =  paste0("adtHarmonyTheta",theta.use,"Umap"),
     ggtitle(paste0("ADT clusters: ADT UMAP Harmony theta=",theta.use))+
     xlab("UMAP_1")+ylab("UMAP_2")
 
+##### Save object
+saveRDS(seur_merged, file=paste0(path_output,"Robjects/ADT.RNA.seuratObj.rds"))
