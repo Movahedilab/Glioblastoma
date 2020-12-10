@@ -11,7 +11,6 @@ suppressPackageStartupMessages({
 
 path_data<-"~/path/to/data/"
 path_output<-"~/path/to/output_folder/"
-dataset="dataset name"
 
 
 ################################################################################
@@ -228,7 +227,7 @@ seuratObj<-AddMetaData(seuratObj, as.data.frame(meta.data.keep))
 ##########  Merge seurat objects from several samples (if needed)
 ################################################################################
 
-seuratObj$sample=dataset
+seuratObj$sample="sample1"
 seuratObj2=readRDS("path/to/sample2_SeuratObject.rds")
 seuratObj2$sample="sample2"
 seuratObj<-merge(seuratObj,seuratObj22)
@@ -335,6 +334,6 @@ plot_grid(plotlist=plot)
 
 
 ##### Save object
-saveRDS(seuratObj, file=paste0(path_output,"Robjects/",dataset,".seuratObj.rds"))
+saveRDS(seuratObj, file=paste0(path_output,"Robjects/seuratObj.rds"))
 
 
