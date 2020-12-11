@@ -43,7 +43,7 @@ length(mito.genes)
 # 13
 
 ##### Calculate QC metrics per cell
-sce$percent.mito <- Matrix::colSums(counts(sce)[mito.genes, ])/Matrix::colSums(counts(sce))  ## proportion expressed mitochondrial genes 
+sce$percent.mito <- (Matrix::colSums(counts(sce)[mito.genes, ])*100)/Matrix::colSums(counts(sce))  ## percentage expressed mitochondrial genes 
 sce$nGene<-apply(counts(sce),  2,  function(x) length(x[x > 0])) # number of expressed genes
 sce$nUMI<-apply(counts(sce),  2,  sum) # total UMI counts (library size)
 sce$staticNr<-1
