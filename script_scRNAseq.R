@@ -213,7 +213,7 @@ table(rowData(sce_clean)$usegenes)
 sce_clean<-sce_clean[rowData(sce_clean)$usegenes, ]
 
 ################################################################################
-########## Convert to Seurat object
+########## CONVERT TO SEURAT OBJECT
 ################################################################################
 counts<-counts(sce_clean)
 rownames(counts)<-rownames(sce_clean)
@@ -224,7 +224,7 @@ meta.data.keep<-meta.data.keep[,c("percent.mito","sample")]
 seuratObj<-AddMetaData(seuratObj, as.data.frame(meta.data.keep))
 
 ################################################################################
-##########  Merge seurat objects from several samples (if needed)
+##########  MERGE SEURAT OBJECT FROM SEVERAL SAMPLES (IF NEEDED)
 ################################################################################
 
 seuratObj$sample="sample1"
@@ -236,8 +236,6 @@ seuratObj<-merge(seuratObj,seuratObj22)
 ########## NORMALIZATION, HVG DETECTION and PCA
 ################################################################################
 
-
-
 ##### Normalize data
 seuratObj <- NormalizeData(seuratObj,verbose = F)
 
@@ -248,7 +246,7 @@ seuratObj <- FindVariableFeatures(seuratObj,verbose=F)
 seuratObj <- ScaleData(seuratObj,verbose=F)
 
 ##### PCA
-seuratObj <- RunPCA(seuratObj, features =VariableFeatures(seuratObj) ,verbose=F)
+seuratObj <- RunPCA(seuratObj, features =VariableFeatures(seuratObj))
 
 #### Select PCs for downstream analysis of the dataset
 ## Seurat provides a heuristic method to help us select PC components. It generates a ranking of PCs based on 
@@ -256,11 +254,11 @@ seuratObj <- RunPCA(seuratObj, features =VariableFeatures(seuratObj) ,verbose=F)
 ElbowPlot(object = seuratObj,ndims =50)
 
 ########## Heatmap of the genes that drive each PC
-DimHeatmap(seuratObj, dims = 1:40, cells = 5000, balanced = TRUE)
+DimHeatmap(seuratObj, dims = 1:30, cells = 5000, balanced = TRUE)
 
 ########## Determine statistically significant PCs - time consuming step
-# seuratObj <- JackStraw(seuratObj, num.replicate = 100, dims=40)
-# JackStrawPlot(seuratObj, PCs = 1:40)
+# seuratObj <- JackStraw(seuratObj, num.replicate = 100, dims=30)
+# JackStrawPlot(seuratObj, dims = 1:30)
 
 
 ################################################################################
@@ -296,7 +294,7 @@ plot_grid(plotlist=plot)
 
 
 ################################################################################
-########## Harmony batch correction -if needed, apply batch correction
+########## HARMONY BATCH CORRECTION (IF NEEDED)
 ################################################################################
 #### Select a value for theta - diversity clustering penalty parameter.
 #### Default theta=2. Larger values of theta result in stronger integration, but can lead to over-correction)
