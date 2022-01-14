@@ -14,11 +14,10 @@ Ana Rita Pombo Antunes, Isabelle Scheyltjens, Francesca Lodi, Julie Messiaen, As
 
 ### Primary contact: 
 ##### Kiavash Movahedi, PhD 
-Team Leader\
-Myeloid Cell Immunology Lab\
-VIB Inflammation Research Center (IRC)\
+Professor\
+Laboratory for Molecular and Cellular Therapy\ 
 Vrije Universiteit Brussel\
-Pleinlaan 2, 1050 Brussels, Belgium\
+Laarbeeklaan 103, Brussels Belgium\
 kiavash.movahedi@vub.be
 
 ### Questions about the code: 
